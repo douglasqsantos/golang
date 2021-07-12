@@ -141,6 +141,14 @@ When we try to get the information about a pod e.g
 - e.g pod.Name to get the pod name
 - e.g pod.Status.PodIP to get the pod ip and so on
 
+## Using smaller binary
+
+By default, the produced binary file contains debugging information and the symbol table. This can bloat the size of the file. To reduce the file size, you can include additional flags during the build process to strip this information from the binary. For example, the following command will reduce the binary size by approximately 30 percent:
+
+```bash
+go build -ldflags "-w -s"
+```
+
 ## Accessing API objects with kubectl get
 
 - https://medium.com/programming-kubernetes/building-stuff-with-the-kubernetes-api-1-cc50a3642
